@@ -36,5 +36,6 @@ User.init({
 
 // add N:N relation between User and Role
 User.belongsToMany(Role, {
-    through: "userRoles",
+    through: "UserRole",
+    foreignKey: "userId",
 })

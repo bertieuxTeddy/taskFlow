@@ -8,4 +8,4 @@ UserRole.init({
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     }
-}, {sequelize, modelName: "user_role"})
+}, {sequelize, modelName: "UserRole"})

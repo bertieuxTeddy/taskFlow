@@ -1,6 +1,7 @@
 import {DataTypes, Model} from "sequelize";
 import sequelize from "../config/database.config"
 import Role from "./role.model";
+import Task from "./task.model";
 
 
 export default class User extends Model{}
@@ -30,6 +31,10 @@ User.init({
    emailVerified: {
      type: DataTypes.BOOLEAN,
      defaultValue: false,
+   },
+   profilePicture: {    // path toward profile Photo
+       type: DataTypes.STRING,
+       allowNull: true,
    }
 
 }, {sequelize, modelName: "user"});
@@ -39,3 +44,4 @@ User.belongsToMany(Role, {
     through: "UserRole",
     foreignKey: "userId",
 })
+User.hasMany(Task);

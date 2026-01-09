@@ -1,6 +1,7 @@
 import {DataTypes, Model} from "sequelize";
 import sequelize from "../config/database.config";
 import User from "./user.model";
+import TaskPermission from "./taskPermission.model";
 
 export default class Role extends Model{}
 Role.init({
@@ -19,4 +20,9 @@ Role.init({
 Role.belongsToMany(User, {
     through: "UserRole",
     foreignKey: "RoleId",
+});
+
+Role.belongsToMany(TaskPermission, {
+    through: "RolePermission",
+    foreignKey: "roleId",
 });

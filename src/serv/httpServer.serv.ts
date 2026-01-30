@@ -1,6 +1,7 @@
 import {Server} from "./server.serv";
 import {servConf, serverConf} from "../conf/server.conf";
 import {Router, Request, Response} from "express";
+import {addMiddleware} from "../middleware/express.middleware";
 
 export class HttpServer implements Server{
 
@@ -8,6 +9,8 @@ export class HttpServer implements Server{
     }
 
     start() {
+        // add middleware
+        addMiddleware(this.serverConf.app);
 
         // add every Route in the express sever
 
